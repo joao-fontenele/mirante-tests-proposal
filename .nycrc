@@ -1,0 +1,22 @@
+{
+    "lines": 1,
+    "statements": 80,
+    "functions": 80,
+    "branches": 80,
+    "include": [
+      "lib/**/*.js"
+    ],
+    "exclude": [
+     "*.spec.js"
+   ],
+    "reporter": [
+      "text-summary",
+      "lcov"
+    ],
+    "require": [
+      "./test/test-helper.js"
+    ],
+    "cache": true,
+    "all": true,
+    "check-coverage": true
+}

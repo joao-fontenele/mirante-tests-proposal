@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --progress --inline --colors",
-    "test": "mocha --compilers js:babel-register -u bdd -R spec --recursive",
-    "test-watch": "mocha --compilers js:babel-register -u bdd -R spec --recursive --watch"
+    "test": "mocha --require ./test/test-helper.js --compilers js:babel-register -u bdd -R spec --recursive",
+    "test-watch": "mocha --require ./test/test-helper.js --compilers js:babel-register -u bdd -R spec --recursive --watch",
+    "coverage": "nyc --require babel-core/register _mocha"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "enzyme": "^2.5.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
+    "nyc": "^8.3.2",
     "sinon": "^1.17.6",
     "sinon-chai": "^2.8.0"
   }
