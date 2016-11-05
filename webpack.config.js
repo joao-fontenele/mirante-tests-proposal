@@ -1,29 +1,34 @@
 var config = {
-   entry: './main.js',
-
+  entry: [
+    './css/styles.less',
+    './main.js',
+  ],
    output: {
-      path:'./',
-      filename: 'index.js',
+    publicPath:'/',
+    filename: 'index.js',
    },
-
+   devtool: 'source-map',
+   debug: 'true',
    devServer: {
-      inline: true,
-      port: 8080
+    inline: true,
+    port: 8080,
    },
-
    module: {
-      loaders: [
-         {
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel',
-
-            query: {
-               presets: ['es2015', 'react']
-            }
-         }
-      ]
-   }
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'react']
+        }
+      },
+      {
+        test: /\.less$/,
+        loader: "style!css!autoprefixer!less"
+      }
+    ]
+  }
 }
 
 module.exports = config;
