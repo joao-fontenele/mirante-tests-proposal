@@ -39,19 +39,24 @@ describe('A TextInput component,', function() {
 
     it('should not add more classes passed by props to the component if no extra classes are given', function() {
         wrapper = shallow(<TextInput {...minProps} errorMessage={null} wrapperCls={null} />);
-        expect(wrapper).to.have.exactly.className(minProps.componentName)
-    })
+        expect(wrapper).to.have.exactly.className(minProps.componentName);
+    });
 
-    it('should not add a has-error class if there\'s an error message', function() {
+    it('should add a has-error class if there\'s an error message', function() {
         wrapper = shallow(<TextInput {...minProps} errorMessage="some error" />);
         expect(wrapper).to.have.className('has-error');
-    })
+    });
+
+    it('should not add a has-error class if there\'s not an error message', function() {
+        wrapper = shallow(<TextInput {...minProps} errorMessage={null} />);
+        expect(wrapper).to.not.have.className('has-error');
+    });
 
     it('should add more classes passed by props to the component', function() {
         var cls = '-compact _centered;'
         wrapper = shallow(<TextInput {...minProps} wrapperCls={cls} />);
-        expect(wrapper).to.have.className(cls)
-    })
+        expect(wrapper).to.have.className(cls);
+    });
 
     context('should have a HelpBlock component,', function() {
         it('that exists', function() {
@@ -77,7 +82,7 @@ describe('A TextInput component,', function() {
         it('that has a class field', function() {
             wrapper = shallow(<TextInput {...minProps} />);
             var field = wrapper.find('input');
-            expect(field).to.have.className('field')
+            expect(field).to.have.className('field');
         });
 
         it('that displays it\'s value property', function() {
