@@ -16,13 +16,13 @@ var mount = enzyme.mount;
 global.document = jsdom('');
 global.window = document.defaultView;
 Object.keys(document.defaultView).forEach(function(property) {
-  if (typeof global[property] === 'undefined') {
-    global[property] = document.defaultView[property];
-  }
+    if (typeof global[property] === 'undefined') {
+        global[property] = document.defaultView[property];
+    }
 });
 
 global.navigator = {
-  userAgent: 'node.js'
+    userAgent: 'node.js'
 };
 
 global.React = React;
