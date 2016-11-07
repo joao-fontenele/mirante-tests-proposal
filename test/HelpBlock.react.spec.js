@@ -1,13 +1,4 @@
-var chai = require('chai');
-var enzyme = require('enzyme');
-var React = require('react');
-var chaiEnzyme = require('chai-enzyme');
 var HelpBlock = require('../lib/HelpBlock.react');
-
-var expect = chai.expect;
-var shallow = enzyme.shallow;
-
-chai.use(chaiEnzyme());
 
 describe('A HelpBlock component,', function() {
 

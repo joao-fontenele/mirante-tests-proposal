@@ -1,17 +1,4 @@
-var chai = require('chai');
-var enzyme = require('enzyme');
-var React = require('react');
-var chaiEnzyme = require('chai-enzyme');
-var sinon = require('sinon');
-var sinonChai = require('sinon-chai');
 var TextInput = require('../lib/TextInput.react');
-
-var expect = chai.expect;
-var shallow = enzyme.shallow;
-var mount = enzyme.mount;
-
-chai.use(chaiEnzyme());
-chai.use(sinonChai);
 
 describe('A TextInput component,', function() {
     var wrapper;
