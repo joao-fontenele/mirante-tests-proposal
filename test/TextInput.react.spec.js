@@ -11,7 +11,7 @@ describe('A TextInput component,', function() {
 
     it('renders without exploding', function() {
         wrapper = shallow(<TextInput {...minProps} />);
-        expect(shallow(<TextInput {...minProps} />)).to.exist;
+        expect(wrapper).to.exist;
     });
 
     it('should have a label element passed by props', function() {
@@ -43,6 +43,27 @@ describe('A TextInput component,', function() {
         var cls = '-compact _centered;'
         wrapper = shallow(<TextInput {...minProps} wrapperCls={cls} />);
         expect(wrapper).to.have.className(cls);
+    });
+
+    it('should have a close icon in case a handleRemove prop is passed', function() {
+        var handler = function() {};
+        wrapper = shallow(<TextInput {...minProps} handleRemove={handler} />);
+
+        expect(wrapper.find('.remove-button')).to.exist;
+    });
+
+    it('should not have a close icon in case a handleRemove prop is not passed', function() {
+        wrapper = shallow(<TextInput {...minProps} handleRemove={null} />);
+        expect(wrapper.find('.remove-button')).to.not.exist;
+    });
+
+    it('should call handleRemove prop in case one is passed, and the button is clicked', function() {
+        var handler = sinon.spy();
+
+        wrapper = shallow(<TextInput {...minProps} handleRemove={handler} />);
+        wrapper.find('.remove-button').simulate('click');
+
+        expect(handler).to.have.been.called.once;
     });
 
     context('should have a HelpBlock component,', function() {
